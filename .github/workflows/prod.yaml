@@ -1,0 +1,24 @@
+name: Prod Deploy for CRM-Frontend
+run-name: ${{github.actor}} is deploying The CRM-Frontend to Prod
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DEPLOYMENT_CHANNEL: deployment-production
+  WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+  URL: https://brokerage.entera.ai/
+
+jobs:
+  alert:
+    runs-on: self-hosted
+    steps:
+      - name: Deploy started slack alert
+        run: |
+          curl -X POST --data-urlencode \
+            "payload={\"channel\": \"#"$DEPLOYMENT_CHANNEL"\", \"username\": \"Deployments\", \
+            \"text\": \"Deployment Started. \n Deploying $GIT_BRANCH to CRM-Frontend \n Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            \n URL: $URL \
+            \", \"icon_emoji\": \":chart_with_upwards_trend:\"}" \
+            $WEBHOOK_URL

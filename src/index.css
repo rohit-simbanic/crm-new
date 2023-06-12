@@ -1,0 +1,59 @@
+:root {
+  --primary-color: #24a0ed;
+  --secondary-color: #536390;
+  --bg-color: white;
+  --font-color: #212121;
+  --btn-color: #0d6efd;
+  --header-color: #fff;
+  /* --header-color: rgba(0, 0, 0, 0.1); */
+  /* --table-header: white; */
+  --input-bg: #f6f6f8;
+  --container-bg: #eee;
+  --hover-color: #0d6efd;
+  --nav-hover: rgba(0, 0, 0, 0.05);
+  --active-col-bg: gray;
+  --table-hover: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.input-bg {
+  background-color: var(--input-bg);
+  color: var(--font-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::-webkit-scrollbar {
+  height: 10px; /* height of horizontal scrollbar ← You're missing this */
+  width: 10px;
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #666;
+}
+
+.fw-bold {
+  font-weight: bold !important;
+}
+.ml-0,
+.mr-0 {
+  margin-left: 0 !important;
+}
+.mt-2,
+.mb-2 {
+  margin-top: 20px !important;
+}

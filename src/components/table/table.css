@@ -1,0 +1,48 @@
+th {
+  position: sticky;
+  top: 0;
+  color: #666;
+  z-index: 0;
+  padding: 5px !important;
+}
+
+td {
+  width: 80px;
+  max-width: 80px;
+}
+
+th:nth-child(n) {
+  white-space: nowrap;
+}
+
+th:nth-child(n),
+td:nth-child(n) {
+  max-width: 110px;
+  overflow-wrap: break-word;
+}
+
+/* Add this for header */
+th:nth-child(n) {
+  min-width: 100px;
+  max-width: 100%;
+}
+
+.table-div {
+  width: calc(99vw - 23%);
+  height: calc(70vh - 75px);
+  overflow: scroll;
+}
+
+@media only screen and (max-width: 768px) {
+  th:nth-child(n),
+  td:nth-child(n) {
+    max-width: 10px;
+    font-size: 10px;
+    overflow-wrap: break-word;
+  }
+  th:nth-child(n),
+  td:nth-child(n) {
+    min-width: 40px;
+    max-width: 100%;
+  }
+}

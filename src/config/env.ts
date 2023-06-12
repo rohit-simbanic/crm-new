@@ -1,0 +1,16 @@
+import { ObjectType } from 'types';
+
+const envConfig: ObjectType = {
+  REACT_APP_BACKEND: process.env.REACT_APP_BACKEND,
+  REACT_APP_GRANT_TYPE: process.env.REACT_APP_GRANT_TYPE,
+  REACT_APP_CLIENT_ID: process.env.REACT_APP_CLIENT_ID,
+  REACT_APP_CLIENT_SECRET: process.env.REACT_APP_CLIENT_SECRET,
+  REACT_APP_SCOPE: process.env.REACT_APP_SCOPE,
+  REACT_APP_API_VERSION_1: process.env.REACT_APP_API_VERSION_1,
+  REACT_APP_CRM_URL: process.env.REACT_APP_CRM_URL,
+  REACT_APP_FRONTEND_URL: process.env.REACT_APP_FRONTEND_URL,
+  REACT_APP_BROKERAGE_ENV: process.env.REACT_APP_BROKERAGE_ENV,
+  REACT_APP_ROLLBAR_TOKEN: process.env.REACT_APP_ROLLBAR_TOKEN,
+};
+
+export default envConfig;

@@ -1,0 +1,80 @@
+import { OpportunityListItem } from './opportunity-list-item';
+
+export interface OpportunityEntity {
+  id: string;
+  name: string | null | undefined;
+  account_id_1: string | null | undefined;
+  account_name: string | null | undefined;
+  msa_id_1: string | null | undefined;
+  msa_name: string | null | undefined;
+  property_address_c: string | null | undefined;
+  entera_opportunity_id: string | null | undefined;
+  opportunity_status_c: string;
+  list_date_c: string | null | undefined;
+  mls_c: string | null | undefined;
+  offer_finalized_at: string | null | undefined;
+  close_date_c: string | null | undefined;
+  contract_execution_date_c: string | null | undefined;
+  due_diligence_start_c: string | null | undefined;
+  due_diligence_end_c: string | null | undefined;
+  list_price_c: string | null | undefined;
+  revised_list_price_c: string | null | undefined;
+  offer_price_c: string | null | undefined;
+  offer_to_list_c: number | null | undefined;
+  offer_date_c: string | null | undefined;
+  mls_status_c: string | null | undefined;
+  reject_reason: string | null | undefined;
+  counter_offer: string | null | undefined;
+  seller_offer_response: string | null | undefined;
+  next_seller_contact_date: string | null | undefined;
+  buyer_contract_name_c: string | null | undefined;
+  cancel_reason: string | null | undefined;
+  customer_accepted_status_verified: string | null | undefined;
+  earnest_amount_c: number | null | undefined;
+  earnest_money_status_c: string | null | undefined;
+  earnest_money_due_date_c: string | null | undefined;
+  congrats_letter_sent_date: string | null | undefined;
+  congrats_letter_sent_by: string | null | undefined;
+  max_offer_price_c: string | null | undefined;
+  contract_price_c: string | null | undefined;
+  date_entered: string | null | undefined;
+  forecasted_close_date: string | null | undefined;
+  parties_listing_agent_id: string | null | undefined;
+  parties_co_listing_agent_id: string | null | undefined;
+  parties_tenant_id: string | null | undefined;
+  parties_transaction_coordinator_id: string | null | undefined;
+  parties_seller_id: string | null | undefined;
+  parties_seller_representative_id: string | null | undefined;
+  parties_lead_source_id: string | null | undefined;
+  parties_lead_owner_id: string | null | undefined;
+  parties_buyer_representative_id: string | null | undefined;
+  parties_intended_buyer_id: string | null | undefined;
+  parties_uploaded_by_id: string | null | undefined;
+  parties_escrow_company_id: string | null | undefined;
+  seller_id: string | null | undefined;
+  option_amount_c: string | null | undefined;
+  option_fee_delivery_date_c: string | null | undefined;
+  contract_review_complete: number | null | undefined;
+  date_modified: string | null | undefined;
+  closing_attorney: string | null | undefined;
+  sellers_disclosure_received: number | null | undefined;
+  special_instructions: string | null | undefined;
+  contract_terminated_date: string | null | undefined;
+  initial_commission_amount: string | null | undefined;
+  contract_termination_reasons: string | null | undefined;
+  account: {
+    id: string | null | undefined;
+    name: string | null | undefined;
+  } | null;
+  market: {
+    id: string | null | undefined;
+    name: string | null | undefined;
+  } | null;
+
+  access_notes: string | null | undefined;
+  market_preference: {
+    id: string;
+    name: string;
+  };
+  market_preference_id: string;
+}
