@@ -81,3 +81,6 @@ button.ql-html-buttonOk:hover {
 .ql-html-buttonGroup {
   bottom: -61px !important;
 }
+.MuiDataGrid-root .MuiDataGrid-cell:focus-within {
+  outline: none !important;
+}

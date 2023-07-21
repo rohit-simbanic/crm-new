@@ -16,6 +16,7 @@ import { PartyEntity } from 'types/party-types';
 
 import RecordView from '../record-view';
 import { isEmpty } from 'helpers/misc-helper';
+import SideBarButton from 'components/form/button-customized';
 
 const CreateParties = ({ routeTag }: { routeTag: string }) => {
   const { opportunity_id, party_id } = useParams();
@@ -118,6 +119,9 @@ const CreateParties = ({ routeTag }: { routeTag: string }) => {
   return (
     <PaperBox>
       <PaperBoxContent>
+        <SideBarButton />
+        <br />
+        <hr />
         <RecordView
           party={party}
           validation={validation}
