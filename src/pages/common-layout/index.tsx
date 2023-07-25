@@ -176,10 +176,7 @@ const CommonLayout = () => {
                   marginTop: '65px',
                   height: 'calc(100vh - 9vh)',
                   overflow: 'auto',
-                  width:
-                    matches === false
-                      ? '100%'
-                      : `calc(100% - ${drawerWidth}px)`,
+                  width: matches === false ? '100%' : '100%',
                   mb: '16px'
                 }}
               >

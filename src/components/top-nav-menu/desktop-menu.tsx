@@ -176,7 +176,7 @@ const DesktopMenu = () => {
                 height: 10,
                 bgcolor: 'background.paper',
                 transform: 'translateY(-50%) rotate(45deg)',
-                zIndex: 0
+                zIndex: 9999
               }
             }
           }}
@@ -258,7 +258,7 @@ const DesktopMenu = () => {
                 height: 10,
                 bgcolor: 'background.paper',
                 transform: 'translateY(-50%) rotate(45deg)',
-                zIndex: 0
+                zIndex: 9999
               }
             }
           }}
@@ -322,7 +322,7 @@ const DesktopMenu = () => {
                   height: 10,
                   bgcolor: 'background.paper',
                   transform: 'translateY(-50%) rotate(45deg)',
-                  zIndex: 0
+                  zIndex: 9999
                 }
               }
             }}
