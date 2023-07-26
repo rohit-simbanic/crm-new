@@ -13,12 +13,12 @@ declare module 'react' {
   }
 }
 
-const Menu = ({ items, handleCloseUserMenu, topMenu }: any) => {
+const Menu = ({ items, handleCloseUserMenu, topMenu, short }: any) => {
   const TreeItem = ({ data, index, children, nodeId }: any) => {
     return (
       <MenuTreeItem
         nodeId={nodeId}
-        labelText={data.label}
+        labelText={short ? '' : data.label}
         labelIcon={data.labelIcon}
         url={data.url}
         handleCloseUserMenu={handleCloseUserMenu}
@@ -66,7 +66,11 @@ const Menu = ({ items, handleCloseUserMenu, topMenu }: any) => {
         defaultCollapseIcon={<ArrowDropDownIcon />}
         defaultExpandIcon={<ArrowRightIcon />}
         defaultEndIcon={<div style={{ width: 24 }} />}
-        sx={{ flexGrow: 1, maxWidth: 400, overflowY: 'auto', mt: 9 }}
+        sx={{
+          flexGrow: 1,
+          maxWidth: short ? 100 : 400,
+          mt: 9
+        }}
       >
         {items &&
           items.length > 0 &&

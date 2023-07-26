@@ -13,13 +13,14 @@ interface MenuItemInterface {
 
 const SideNavPanel = (props: MenuItemInterface) => {
   const { mobileSideNavOpen, handleMobileSideNav } = useContext(LayoutProvider);
-  const [hidden, setHidden] = useState(false);
+  const [show, setShow] = useState(true);
 
   const toggleVisibility = () => {
-    setHidden(!hidden);
+    setShow(!show);
   };
   let lengthOfItem: number = props.items.length;
 
+  console.log(props.items);
   return (
     <div style={{ position: 'relative' }}>
       <Drawer
@@ -36,12 +37,13 @@ const SideNavPanel = (props: MenuItemInterface) => {
       >
         <Menu items={props.items} handleCloseUserMenu={handleMobileSideNav} />
       </Drawer>
+
       {lengthOfItem === 14 && (
         <Icon
           sx={{
             position: 'absolute',
-            top: '58px',
-            right: '-5px',
+            top: '72px',
+            right: `${show ? '-9px' : '-16px'}`,
             height: '29px',
             width: '29px',
             borderRadius: '50%',
@@ -53,20 +55,36 @@ const SideNavPanel = (props: MenuItemInterface) => {
           }}
           onClick={toggleVisibility}
         >
-          {!hidden ? <KeyboardArrowRightIcon /> : <KeyboardArrowLeftIcon />}
+          {show ? <KeyboardArrowRightIcon /> : <KeyboardArrowLeftIcon />}
         </Icon>
       )}
 
-      {!hidden ? (
+      {show ? (
         <Drawer
           variant="permanent"
           sx={{
             width: drawerWidth,
             display: { xs: 'none', sm: 'block' },
             flexShrink: 0,
+            overflowY: 'hidden',
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: drawerWidth
+              width: drawerWidth,
+              '&::-webkit-scrollbar-track': {
+                WebkitBoxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
+                backgroundColor: '#F5F5F5',
+                borderRadius: '10px'
+              },
+              '&::-webkit-scrollbar': {
+                width: '10px',
+                backgroundColor: '#F5F5F5'
+              },
+              '&::-webkit-scrollbar-thumb': {
+                backgroundColor: '#AAA',
+                borderRadius: '10px',
+                backgroundImage:
+                  '-webkit-linear-gradient(90deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent)'
+              }
             }
           }}
           open
@@ -77,16 +95,37 @@ const SideNavPanel = (props: MenuItemInterface) => {
         <Drawer
           variant="permanent"
           sx={{
-            width: `${lengthOfItem === 14 ? '24px' : drawerWidth}`,
+            width: `${lengthOfItem === 14 ? '114px' : drawerWidth}`,
             display: { xs: 'none', sm: 'block' },
             flexShrink: 0,
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: `${lengthOfItem === 14 ? '29px' : drawerWidth}`
+              width: `${lengthOfItem === 14 ? '118px' : drawerWidth}`,
+              '&::-webkit-scrollbar-track': {
+                WebkitBoxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
+                backgroundColor: '#F5F5F5',
+                borderRadius: '10px'
+              },
+              '&::-webkit-scrollbar': {
+                width: '10px',
+                backgroundColor: '#F5F5F5'
+              },
+              '&::-webkit-scrollbar-thumb': {
+                backgroundColor: '#AAA',
+                borderRadius: '10px',
+                backgroundImage:
+                  '-webkit-linear-gradient(90deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent)'
+              }
             }
           }}
           open
-        ></Drawer>
+        >
+          <Menu
+            items={props.items}
+            handleCloseUserMenu={handleMobileSideNav}
+            short={true}
+          />
+        </Drawer>
       )}
     </div>
   );

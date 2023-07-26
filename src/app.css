@@ -84,3 +84,12 @@ button.ql-html-buttonOk:hover {
 .MuiDataGrid-root .MuiDataGrid-cell:focus-within {
   outline: none !important;
 }
+.drawerHidden {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+.drawerVisible {
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
