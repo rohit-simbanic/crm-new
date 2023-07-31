@@ -21,7 +21,7 @@ type StyledTreeItemProps = TreeItemProps & {
 };
 
 const StyledTreeItemRoot = styled(TreeItem)(({ theme }) => ({
-  margin: '0 15px !important',
+  margin: '0 0px !important',
   color: theme.palette.text.secondary,
   [`& .${treeItemClasses.content}`]: {
     color: theme.palette.text.secondary,
@@ -79,7 +79,8 @@ const MenuTreeItem = (props: StyledTreeItemProps) => {
             fontWeight: '700',
             flexGrow: 1,
             color: colors.grey[900],
-            fontSize: '1rem'
+            fontSize: '1rem',
+            paddingLeft: 0
           }}
         >
           {labelText}

@@ -15,8 +15,19 @@ const SideNavPanel = (props: MenuItemInterface) => {
   const { mobileSideNavOpen, handleMobileSideNav } = useContext(LayoutProvider);
   const [show, setShow] = useState(true);
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(!isHovered);
+  };
+
   const toggleVisibility = () => {
     setShow(!show);
+    setIsHovered(!true);
   };
   let lengthOfItem: number = props.items.length;
 
@@ -43,14 +54,15 @@ const SideNavPanel = (props: MenuItemInterface) => {
           sx={{
             position: 'absolute',
             top: '72px',
-            right: `${show ? '-9px' : '-16px'}`,
+            right: `${show ? '-11px' : '-16px'}`,
             height: '29px',
             width: '29px',
             borderRadius: '50%',
-            backgroundColor: '#afafaf',
+            backgroundColor: '#fff',
             zIndex: 2222,
-            color: '#fff',
+            color: '#000',
             cursor: 'pointer',
+            boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
             display: { xs: 'none', sm: 'block' }
           }}
           onClick={toggleVisibility}
@@ -59,13 +71,15 @@ const SideNavPanel = (props: MenuItemInterface) => {
         </Icon>
       )}
 
-      {show ? (
+      {show || isHovered ? (
         <Drawer
           variant="permanent"
           sx={{
             width: drawerWidth,
             display: { xs: 'none', sm: 'block' },
             flexShrink: 0,
+            transform: show || isHovered ? '' : 'translateX(0)',
+            transition: 'transform 0.3s ease-in-out',
             overflowY: 'hidden',
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
@@ -76,18 +90,18 @@ const SideNavPanel = (props: MenuItemInterface) => {
                 borderRadius: '10px'
               },
               '&::-webkit-scrollbar': {
-                width: '10px',
+                width: '5px',
                 backgroundColor: '#F5F5F5'
               },
               '&::-webkit-scrollbar-thumb': {
                 backgroundColor: '#AAA',
                 borderRadius: '10px',
-                backgroundImage:
-                  '-webkit-linear-gradient(90deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent)'
+                backgroundImage: '#F5F5F5'
               }
             }
           }}
           open
+          onMouseLeave={handleMouseLeave}
         >
           <Menu items={props.items} handleCloseUserMenu={handleMobileSideNav} />
         </Drawer>
@@ -97,6 +111,8 @@ const SideNavPanel = (props: MenuItemInterface) => {
           sx={{
             width: `${lengthOfItem === 14 ? '114px' : drawerWidth}`,
             display: { xs: 'none', sm: 'block' },
+            transform: !show || !isHovered ? '' : 'translateX(-100%)',
+            transition: 'transform 0.3s ease-in-out',
             flexShrink: 0,
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
@@ -107,14 +123,13 @@ const SideNavPanel = (props: MenuItemInterface) => {
                 borderRadius: '10px'
               },
               '&::-webkit-scrollbar': {
-                width: '10px',
+                width: '5px',
                 backgroundColor: '#F5F5F5'
               },
               '&::-webkit-scrollbar-thumb': {
                 backgroundColor: '#AAA',
                 borderRadius: '10px',
-                backgroundImage:
-                  '-webkit-linear-gradient(90deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent)'
+                backgroundImage: '#F5F5F5'
               }
             }
           }}
@@ -124,6 +139,8 @@ const SideNavPanel = (props: MenuItemInterface) => {
             items={props.items}
             handleCloseUserMenu={handleMobileSideNav}
             short={true}
+            // onMouseLeave={handleMouseLeave}
+            handleMouseEnter={handleMouseEnter}
           />
         </Drawer>
       )}

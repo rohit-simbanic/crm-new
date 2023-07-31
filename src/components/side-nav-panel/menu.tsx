@@ -5,6 +5,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import TreeView from '@mui/lab/TreeView';
 import MenuTreeItem from 'components/side-nav-panel/menu-tree-item';
 import { v4 as uuid } from 'uuid';
+import { useState } from 'react';
 
 declare module 'react' {
   interface CSSProperties {
@@ -13,8 +14,15 @@ declare module 'react' {
   }
 }
 
-const Menu = ({ items, handleCloseUserMenu, topMenu, short }: any) => {
+const Menu = ({
+  items,
+  handleCloseUserMenu,
+  topMenu,
+  short,
+  handleMouseEnter
+}: any) => {
   const TreeItem = ({ data, index, children, nodeId }: any) => {
+    console.log('Menu Rendered');
     return (
       <MenuTreeItem
         nodeId={nodeId}
@@ -23,6 +31,7 @@ const Menu = ({ items, handleCloseUserMenu, topMenu, short }: any) => {
         url={data.url}
         handleCloseUserMenu={handleCloseUserMenu}
         url={data.url !== '' ? data.url : '#'}
+        onMouseEnter={handleMouseEnter}
       >
         {children}
       </MenuTreeItem>
@@ -65,11 +74,11 @@ const Menu = ({ items, handleCloseUserMenu, topMenu, short }: any) => {
         aria-label="Side-Nav-Menu"
         defaultCollapseIcon={<ArrowDropDownIcon />}
         defaultExpandIcon={<ArrowRightIcon />}
-        defaultEndIcon={<div style={{ width: 24 }} />}
+        defaultEndIcon={<div style={{ width: 14 }} />}
         sx={{
           flexGrow: 1,
-          maxWidth: short ? 100 : 400,
-          mt: 9
+          maxWidth: short ? 100 : 600,
+          margin: '70px auto 0'
         }}
       >
         {items &&
