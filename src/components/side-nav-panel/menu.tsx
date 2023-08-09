@@ -22,7 +22,7 @@ const Menu = ({
   handleMouseEnter
 }: any) => {
   const TreeItem = ({ data, index, children, nodeId }: any) => {
-    console.log('Menu Rendered');
+
     return (
       <MenuTreeItem
         nodeId={nodeId}
