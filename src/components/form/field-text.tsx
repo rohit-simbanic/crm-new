@@ -19,7 +19,7 @@ const StyledFieldText = styled(MuiTextField)(() => ({
 }));
 
 export const FieldText = ({ InputLabelProps = {}, ...props }) => {
-  return <StyledFieldText {...props} />;
+  return <StyledFieldText data-testid="field-text" {...props} />;
 };
 
 export default FieldText;

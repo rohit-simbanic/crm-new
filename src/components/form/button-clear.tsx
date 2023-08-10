@@ -16,6 +16,7 @@ const ClearButton = ({ onClick }: ClearButtonInterface) => {
       name="btn-clear"
       onClick={onClick}
       startIcon={<ClearIcon />}
+      data-testid="clear-button"
     >
       {buttonText.clear}
     </SecondaryButton>

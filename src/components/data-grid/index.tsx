@@ -73,7 +73,7 @@ const DataGrid = ({
   return (
     <>
       <PaperBox sx={{ mt: 1 }}>
-        <PaperBoxContent>
+        <PaperBoxContent data-testid="data-grid">
           {error ? (
             <ErrorComponent message={error} />
           ) : (

@@ -61,6 +61,7 @@ const accountItems = (isLink) => {
       />
     );
   }
+  console.log('account breadcrumb:', breadcrumbs);
   return breadcrumbs;
 };
 
@@ -72,7 +73,7 @@ const view = (params) => {
   breadcrumbs.push(
     <BreadcrumbItem key={uuid()} type="title" title={record?.name} />
   );
-
+  console.log('view:', breadcrumbs);
   return breadcrumbs;
 };
 

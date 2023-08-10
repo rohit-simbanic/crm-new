@@ -5,16 +5,19 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const Breadcrumbs = ({ sx, children }: { sx?: any; children: any }) => {
   return (
-    <Box sx={{ borderBottom: 1, borderColor: 'divider', p: 2, ...sx }}>
-      <Stack>
-        <MuiBreadcrumbs
-          separator={<NavigateNextIcon fontSize="small" />}
-          aria-label="breadcrumb"
-        >
-          {children}
-        </MuiBreadcrumbs>
-      </Stack>
-    </Box>
+    <>
+      <div data-testid="breadcrumb"></div>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider', p: 2, ...sx }}>
+        <Stack>
+          <MuiBreadcrumbs
+            separator={<NavigateNextIcon fontSize="small" />}
+            aria-label="breadcrumb"
+          >
+            {children}
+          </MuiBreadcrumbs>
+        </Stack>
+      </Box>
+    </>
   );
 };
 

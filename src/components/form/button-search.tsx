@@ -16,6 +16,7 @@ const SearchButton = (props: SearchButtonInterface) => {
       size="medium"
       onClick={props.onClick}
       startIcon={<SearchIcon />}
+      data-testid="search-button"
     >
       {buttonText.search}
     </PrimaryButton>

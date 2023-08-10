@@ -38,6 +38,7 @@ const AccountPage = () => {
           ...pararms
         }}
       />
+
       <ContainerRight>
         <Outlet context={{ routeName, setRouteName }} />
       </ContainerRight>
